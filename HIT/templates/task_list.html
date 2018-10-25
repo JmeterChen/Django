@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <style type="text/css">
+        i{margin-right: 5px}
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid" style="margin-top: 100px">
+        <form class="form-inline" style="margin-bottom: 10px">
+          <div class="form-group">
+            <input type="text" class="form-control" id="task_name" placeholder="按任务名称查询">
+          </div>
+          <a id="search" class="btn btn-primary"><i class="fa fa-search"></i>查询</a>
+          <a href="/index/task/new/" class="btn btn-success" style="margin-left: 5px"><i class="fa fa-gavel"></i>新建测试任务</a>
+        </form>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>任务id</th>
+                <th>任务名称</th>
+                <th>任务描述</th>
+                <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.name }}</td>
+                    <td>{{ task.desc }}</td>
+                    <td>
+                        <a class="btn btn-success"><i class="fa fa-play-circle-o"></i>运行</a>
+                        <a class="btn btn-warning"><i  class="fa fa-pencil-square"></i>编辑</a>
+                        <a class="btn btn-danger"><i  class="fa fa-trash-o"></i>删除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+          </tbody>
+        </table>
+
+    </div>
+    <script>
+        $("#search").click(function () {
+            var name = $("#task_name").val();
+            $.get('/index/api/search_task/?name='+name, function (data) {
+                if(data.tasks.length > 0){
+                    $("tbody").empty();
+                    var arr1 = data.tasks;
+                    $.each(arr1, function(i,val){
+                        var text = "<tr><td>"+ val.id+"</td><td>"+val.name+"</td><td>"+val.desc+"</td><td> <a class=\"btn btn-success\"><i class=\"fa fa-play-circle-o\"></i>运行</a>  <a class=\"btn btn-warning\"><i style=\"margin-right: 5px\" class=\"fa fa-pencil-square\"></i>编辑</a>  <a class=\"btn btn-danger\"><i class=\"fa fa-trash-o\"></i>删除</a></td></tr>"
+                        $("tbody").append(text);
+                    });
+                }else {
+                    alert('无匹配的测试任务');
+                }
+            });
+        });
+    </script>        
+{% endblock %}

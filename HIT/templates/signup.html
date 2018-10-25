@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+    {% block title %}
+        <h1>接口测试服务平台<span style="margin-left: 20px">用户注册</span></h1>
+        <p style="margin-left: 60px">访问接口平台请先注册用户</p>
+        <p>如果已注册，请点击下方登录按钮，直接登录</p>
+    {% endblock %}
+
+    {% block form %}
+            <h2>用户注册<i class="fa fa-pencil-square-o fa-3x"></i></h2>
+            <h3>填写以下信息，完成注册：</h3>
+            <div class="divider"></div>
+            <form>
+              <div class="form-group" id="username_div">
+                <input type="text" class="form-control" name="username" placeholder="用户名">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="email" placeholder="邮箱">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="密码">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password_confirm" placeholder="确认密码">
+              </div>
+              <button style="font-size: 20px" type="submit" class="btn btn-warning form-control">注册</button>
+            </form>
+        <script type="text/javascript">
+            $("form").bootstrapValidator({
+                live: 'enabled',
+                feedbackIcons: {
+                    valid: 'fa fa-check',
+                    invalid: 'fa fa-times',
+                    validating: 'fa fa-hourglass-start'
+                },
+                fields: {
+{#                    username: {#}
+{#                        validators: {#}
+{#                            notEmpty: {#}
+{#                                message: '用户名必填'#}
+{#                            },#}
+{#                            stringLength: {#}
+{#                                min: 5,#}
+{#                                max: 20,#}
+{#                                message: '用户名必须在5-20个字符之间'#}
+{#                            }#}
+{#                            remote: {#}
+{#                                url: '/index/api/user_check/',#}
+{#                                message: '用户名已存在',#}
+{#                                data: 	function(validator) {#}
+{#                                    return {#}
+{#                                        name: $("input[name='username']").val()#}
+{#                                    };#}
+{#                                }#}
+{#                            }#}
+{#                        }#}
+{#                    },#}
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: '密码必填'
+                            },
+                            stringLength: {//检测长度
+                                min: 5,
+                                max: 10,
+                                message: '密码必须是5-10位'
+                            }
+                        }
+                    },
+                    email:{
+                        validators: {
+                            notEmpty: {
+                                message: '邮箱必填'
+                            },
+                            emailAddress:{
+                                message: '邮箱格式错误'
+                            }
+                        }
+                    },
+                    password_confirm:{
+                        validators: {
+                            notEmpty: {
+                                message: '密码需要确认'
+                            },
+                            identical: {
+                                field: 'password',
+                                message: '密码和确认密码不一致'
+                            }
+                        }
+                    }
+                }
+            });
+            $("input[name='username']").blur(function () {
+{#                $.get('/index/api/user_check/?name='+$(this).val(), function (data) {#}
+{#                    $("#username_div").removeClass('has-error');#}
+{#                    $("#error_info").remove();#}
+{#                    if(data.valid == false){#}
+{#                        $("#username_div").addClass('has-error');#}
+{#                        $("#username_div").append('<label id=\"error_info\" class=\"control-label\" for=\"inputError1\">用户名已存在</label>');#}
+{#                    }#}
+{#                });#}
+            });
+        </script>
+    {% endblock %}
+

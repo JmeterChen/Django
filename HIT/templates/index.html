@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口测试平台</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrapValidator.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrapValidator.js' %}"></script>
+    <style type="text/css">
+        {% block css %}
+        {% endblock %}
+        body {background-image: url("{% static 'image/background.jpg' %}")}
+        body {color: honeydew}
+        span,p {font-size: 20px}
+        div.container {margin-top: 250px}
+        a.home-btn {margin-left: 60px;font-size: 20px}
+        div.divider {
+            float: left;
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            background: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+        i {float: right}
+        small {font-size: 16px}
+        i.form-control-feedback {margin-top: 15px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                {% block title %}
+                {% endblock %}
+                <a href="/index/login/" class="home-btn btn btn-warning">登录</a>
+                <a href="/index/signup/" class="home-btn btn btn-success">注册</a>
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                {% block form %}
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
