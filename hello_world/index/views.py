@@ -4,6 +4,10 @@ from django.views.decorators.http import require_http_methods
 from datetime import datetime
 import json
 from django.http import JsonResponse
+import os
+import csv
+from django.template.loader import get_template
+from django.template import Context,Template
 
 # Create your views here.
 
@@ -12,11 +16,21 @@ def login(request):
 	# return render(request,'login.html')
 	# 如果有cookie且正确，直接返回到home页面
 	username = request.COOKIES.get('username')
-	pwd = request.COOKIES.get('password')
-	if username == 'admin' and pwd == '123456':
-		return render(request,'home.html',{'user':username})
-	else:
-		return render(request,'login.html')
+	# pwd = request.COOKIES.get('password')
+	# 因为is_login接口里面cookie中密码加密的方式改了，这里获取的时候方法也需要相应变更
+	pwd = request.get_signed_cookie('password',default=None)
+	print(pwd)
+	with open('user.csv','r',encoding='utf-8') as f:
+		reader = csv.reader(f)
+		for i in reader:
+			# print(i)
+			# if username == 'admin' and pwd == '123456':
+			if i[0] == username and i[1] == pwd:
+				res = render(request,'home.html',{'user':username})
+				return res
+		else:
+			return render(request,'login.html')
+
 
 def is_login(request):
 	username = request.POST.get('username')
@@ -24,19 +38,28 @@ def is_login(request):
 	is_save = request.POST.get('is_save')
 	print(is_save)
 	if username and password:
-		if username == 'admin' and password == '123456':
-			# return render(request, 'home.html',{'user':username})
-			res = render(request, 'home.html',{'user':username})
-			if is_save =='on':
-				res.set_cookie(key='username', value=username)
-				res.set_cookie(key='password', value=password)
-			return res
-		else:
-			# return HttpResponse('用户名或密码错误！')
-			return render(request,'error.html',{'msg': '用户名或密码错误！'})
+		with open('user.csv','r',encoding='utf-8') as f:
+			reader = csv.reader(f)
+			for i in reader:
+				# print(i)
+				if i[0] == username and i[1] == password:
+					res = render(request, 'home.html',{'user':username})
+					if is_save =='on':
+						res.set_cookie(key='username', value=username)
+						# res.set_cookie(key='password', value=password)
+						# django自带hash散列算法加密 这里改了，那么前面的login接口也要更改
+						res.set_signed_cookie(key='password', value=password)
+					return res
+			else:
+				# return HttpResponse('用户名或密码错误！')
+				return render(request,'error.html',{'msg': '用户名或密码错误！'})
 	else:
 		# return HttpResponse('缺少必填参数！')
 		return render(request,'error.html',{'msg': '缺少必填参数！'})
+
+
+
+
 
 
 bus_cal = {
@@ -126,10 +149,41 @@ def bugs_num(request):
 	return JsonResponse(data=data)
 
 
+#  使用HttpResponnse返回字符串
+def current_date(request):
+	now_time = datetime.now()
+	# html = "<html><body>Current time is: %s</body></html>" % now_time
+	print(os.getcwd())
+	cur_path = os.getcwd()
+	fp = open('%s/demo.html' % cur_path,encoding='utf-8')
+	t = Template(fp.read())
+	fp.close()
+	html = t.render(Context({'current_date': now_time}))
+	return HttpResponse(html)
+
+
+def app_current_date(request):
+	now_time = datetime.now()
+	# html = "<html><body>Current time is: %s</body></html>" % now_time
+	print(os.getcwd())
+	cur_path = os.getcwd()
+	fp = open('%s/index/templates/app_demo.html' % cur_path, encoding='utf-8')
+	t = Template(fp.read())
+	fp.close()
+	html = t.render(Context({'current_date': now_time}))
+	return HttpResponse(html)
+
 
 def now_time(request):
 	# 单纯打印动态内容
-	return HttpResponse('Current time is : %s'%(datetime.now()))
+	# return HttpResponse('Current time is : %s'%(datetime.now()))
+	now_date = datetime.now()
+	print(now_date)
+	text = get_template('now_time.html')
+	# msg = text.render(Context({'current_date':now_date}))  # 这里这样写会报错的
+	msg = text.render({'current_date':now_date})
+	return HttpResponse(msg)
+
 
 
 def page_num(request,num):
