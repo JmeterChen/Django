@@ -26,7 +26,7 @@ def login(request):
 			# print(i)
 			# if username == 'admin' and pwd == '123456':
 			if i[0] == username and i[1] == pwd:
-				res = render(request,'home.html',{'user':username})
+				res = render(request, 'home.html', {'user':username})
 				return res
 		else:
 			return render(request,'login.html')
@@ -52,10 +52,10 @@ def is_login(request):
 					return res
 			else:
 				# return HttpResponse('用户名或密码错误！')
-				return render(request,'error.html',{'msg': '用户名或密码错误！'})
+				return render(request, 'error.html', {'msg': '用户名或密码错误！'})
 	else:
 		# return HttpResponse('缺少必填参数！')
-		return render(request,'error.html',{'msg': '缺少必填参数！'})
+		return render(request,'error.html', {'msg': '缺少必填参数！'})
 
 
 

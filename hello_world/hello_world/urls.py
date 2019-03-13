@@ -14,10 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include, re_path
+from nemo import views
+
+extra_patterns = [
+    path('charge/', views.nemo_charge)
+]
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('huice/', include('index.urls')),
-    path('wood/', include('wood.urls'))
+    path('wood/', include('wood.urls')),
+    re_path(r'^nemo/', include(extra_patterns)),
+    path('nemo/', include('nemo.urls'))
 ]
+
+
