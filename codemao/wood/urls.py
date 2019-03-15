@@ -6,7 +6,7 @@ from django.urls import path
 from wood import views
 
 
-urlpatterns = [
-    path('login/', views.login),
-	path('demo_db/', views.db_test)
-]
+urlpatterns = {
+	path('login/', views.login),
+	path('demo/', views.db_demo)
+}
