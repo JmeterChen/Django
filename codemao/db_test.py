@@ -2,6 +2,9 @@
 # __author__ = 'Bo_lin Chen'
 # Date: 2019/3/14
 
+
+# from .wood.views import *
+
 """
 
 python 操作excle
@@ -13,12 +16,12 @@ python 操作excle
 
 # workbook
 
-import xlrd
-
-workbook = xlrd.open_workbook('./图书信息表.xls')
-# print(type(workbook))
-sheet_name_list = workbook.sheet_names()
-# print(sheet_name_list)
+# import xlrd
+#
+# workbook = xlrd.open_workbook('./图书信息表.xls')
+# # print(type(workbook))
+# sheet_name_list = workbook.sheet_names()
+# # print(sheet_name_list)
 
 
 
@@ -88,14 +91,21 @@ sheet_name_list = workbook.sheet_names()
 # 	print(publish[0], publish[1], publish[2], publish[3])
 
 
-# 作者详情
-author_detail = xlrd.open_workbook('./图书信息表.xls')
-sheet_author_detail = author_detail.sheet_by_name('作者信息')
-for i in range(1, sheet_author_detail.nrows):
-	author_detail = sheet_author_detail.row_values(i)
-	print(author_detail)
-
-
-
+# file = xlrd.open_workbook('./图书信息表.xls')
+# # 作者详情
+# # sheet_author_detail = file.sheet_by_name('作者信息')
+# # for i in range(1, sheet_author_detail.nrows):
+# # 	author_detail = sheet_author_detail.row_values(i)
+# # 	print(author_detail)
+#
+#
+# # 书籍
+# book = file.sheet_by_name('图书信息')
+#
+# print(book.nrows)
+# for i in range(1, book.nrows):
+# 	book_detail = book.row_values(i)
+# 	print(book_detail)
+#
 
 
