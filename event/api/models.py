@@ -7,8 +7,8 @@ class Event(models.Model):
 	title = models.CharField(max_length=30, null=False, unique=True)
 	limit = models.IntegerField(default=200, null=False)
 	status = models.IntegerField(choices=((0, '未开始'), (1, '进行中'), (2, '已结束')), default=0)
-	addres = models.CharField(max_length=50, null=False)
-	times = models.DateField(null=False)
+	address = models.CharField(max_length=50, null=False)
+	times = models.DateTimeField(null=False)
 	
 	
 class Guess(models.Model):

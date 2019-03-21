@@ -17,7 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from api import views
 
-urlpatterns = {
+urlpatterns = [
 	path('admin/', admin.site.urls),
-	path('event/api/add_event/', views.add_guest)
-}
+	path('event/api/add_event/', views.add_event),
+	path('event/api/get_eventlist/', views.get_eventlist),
+	path('event/api/register/', views.register),
+	path('event/api/add_guess/', views.add_guess)
+
+]

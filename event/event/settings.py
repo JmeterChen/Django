@@ -37,8 +37,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api'
+    'api',
+    'rest_framework.authtoken'
 ]
+
+REST_FRAMEWORK = {
+    
+    'DEFAULT_PERMISSION_CLASSES': (
+        
+        'rest_framework.permissions.IsAuthenticated',
+    
+    ),
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+        'rest_framework.authentication.TokenAuthentication',
+    
+    ),
+    
+    'PAGINATE_BY': 10
+}
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,8 +103,7 @@ DATABASES = {
         'NAME': 'db_event',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': '19940415',
-        'PORT': '3306'
+        'PASSWORD': '19940415'
     }
 }
 
