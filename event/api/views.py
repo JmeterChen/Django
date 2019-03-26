@@ -6,6 +6,7 @@ from api.models import *
 import time
 from django.contrib import auth
 from rest_framework.authtoken.models import Token
+from django.db import connection
 
 # def add_event(request):
 # 	Event.objects.create(title='111', limit='50', status='0', address='深圳',
@@ -120,6 +121,37 @@ def add_guess(request):
 	
 
 @require_http_methods(['POST'])
+def get_event_guess(request):
+	event_id = request.POST.get('id')
+	phone_number = request.POST.get('phone_number')
+	if event_id:
+		try:
+			event = Event.objects.get(id=event_id)
+			if not phone_number:
+				# 注意get和filter 的区分，get在没有查找到对象时会报错，filter会返回空列表
+				guess_obj = Guess.objects.filter(event=event).values('id', 'name',
+				                                                     'phone_number', 'e_mail')
+				guess_list = []
+				for i in guess_obj:
+					guess_list.append(i)
+				# print(guess_list)
+				result = {'error_code': 0, "guest_list": guess_list}
+			else:
+				guess_obj = Guess.objects.filter(event=event, phone_number=phone_number).values('id', 'name',
+				                                                                                'phone_number', 'e_mail')
+				# print(guess_obj.first())
+				if guess_obj:
+					result = {'error_code': 0, "guest_list": guess_obj.first()}
+				else:
+					result = {'error_code': 10007}
+		except:
+			result = {'error_code': 10004}
+	else:
+		result = {'error_code': 10001}
+	return JsonResponse(result)
+	
+	
+@require_http_methods(['POST'])
 def get_eventlist(request):
 	title = request.POST.get('title')
 	# print(title)
@@ -134,6 +166,44 @@ def get_eventlist(request):
 		result = {"event_list": events, "error_code": 0}
 	else:
 		result = {"error_code": 10004}
+	return JsonResponse(result)
+
+
+@require_http_methods(['GET'])
+def get_event_detail(request):
+	event_id = request.GET.get('id')
+	if event_id:
+		event = Event.objects.filter(id=event_id)
+		if event:
+			event_detail = Event.objects.filter(id=event_id).values('id', 'title', 'status', 'limit',
+			                                                        'address', 'times')
+			result = {'error': 0, "event_detail": event_detail}
+		else:
+			result = {'error': 10004}
+	else:
+		result = {'error': 10001}
+	return JsonResponse(result)
+
+
+@require_http_methods(['POST'])
+def set_event_status(request):
+	event_id = request.POST.get('id')
+	event_status = request.POST.get('status')
+	if event_id and event_status:
+		event = Event.objects.filter(id=event_id)
+		if event:
+			if int(event_status) in [0, 1, 2]:
+				try:
+					Event.objects.filter(id=event_id).update(status=event_status)
+					result = {'error': 0}
+				except:
+					result = {'msg': '数据更新失败'}
+			else:
+				result = {'error': 10003}
+		else:
+			result = {'error': 10004}
+	else:
+		result = {'error': 10001}
 	return JsonResponse(result)
 
 
@@ -152,5 +222,39 @@ def register(request):
 			result = {"error": 10000}
 	else:
 		result = {'error': 10001}
-	
+	return JsonResponse(result)
+
+
+@require_http_methods(['POST'])
+def sign(request):
+	event_id = request.POST.get('id')
+	phone_number = request.POST.get('phone_number')
+	if event_id and phone_number:
+		event = Event.objects.filter(id=event_id)
+		guess = Guess.objects.filter(phone_number=phone_number)
+		if event and guess:
+			event_obj = Event.objects.filter(guess__phone_number=phone_number, id=event_id)
+			if event_obj:
+				if event_obj.first().status !=2:
+					cursor = connection.cursor()
+					cursor.execute('select sign from api_guess_event a where a.guess_id=%s AND a.event_id= %s', [
+						guess.first().id, event.first().id
+					])
+					# print(cursor.fetchone())
+					if (cursor.fetchone())[0] == 0:
+						cursor.execute('update api_guess_event a set a.sign =1 WHERE a.guess_id=%s AND a.event_id= %s',[
+							guess.first().id, event.first().id
+						])
+						result = {'error': 0}
+					else:
+						result = {'error': 10009}
+					
+				else:
+					result = {'error': 10010}
+			else:
+				result = {'error': 10008}
+		else:
+			result = {'msg': '会议或参会人员不存在！'}
+	else:
+		result = {'error': 10001}
 	return JsonResponse(result)

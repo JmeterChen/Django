@@ -22,6 +22,9 @@ urlpatterns = [
 	path('event/api/add_event/', views.add_event),
 	path('event/api/get_eventlist/', views.get_eventlist),
 	path('event/api/register/', views.register),
-	path('event/api/add_guess/', views.add_guess)
+	path('event/api/add_guess/', views.add_guess),
+	path('event/api/get_event_guess/', views.get_event_guess),
+	path('event/api/get_event_detail/', views.get_event_detail),
+	path('event/api/sign/', views.sign)
 
 ]
