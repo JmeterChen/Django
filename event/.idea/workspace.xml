@@ -50,8 +50,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/event/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="62" />
               <folding>
                 <element signature="e#629#661#0" expanded="true" />
               </folding>
@@ -63,13 +63,13 @@
         <entry file="file://$PROJECT_DIR$/api/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1036">
-              <caret line="125" column="51" lean-forward="true" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
+              <caret line="185" column="31" lean-forward="true" selection-start-line="185" selection-start-column="31" selection-end-line="185" selection-end-column="31" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-                <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-                <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-                <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+                <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+                <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+                <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+                <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
               </folding>
             </state>
           </provider>
@@ -362,10 +362,10 @@
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+            <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
           </folding>
         </state>
       </provider>
@@ -462,10 +462,10 @@
           <caret line="130" column="35" lean-forward="true" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+            <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
           </folding>
         </state>
       </provider>
@@ -550,10 +550,10 @@
           <caret line="101" column="48" lean-forward="false" selection-start-line="101" selection-start-column="42" selection-end-line="101" selection-end-column="48" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+            <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
           </folding>
         </state>
       </provider>
@@ -623,10 +623,10 @@
           <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+            <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
           </folding>
         </state>
       </provider>
@@ -715,8 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/event/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="364">
+          <caret line="26" column="62" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="62" />
           <folding>
             <element signature="e#629#661#0" expanded="true" />
           </folding>
@@ -726,13 +726,13 @@
     <entry file="file://$PROJECT_DIR$/api/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1036">
-          <caret line="125" column="51" lean-forward="true" selection-start-line="125" selection-start-column="51" selection-end-line="125" selection-end-column="51" />
+          <caret line="185" column="31" lean-forward="true" selection-start-line="185" selection-start-column="31" selection-end-line="185" selection-end-column="31" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1553605987212" expanded="true" signature="7710:7750" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7783" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7710:7836" ph="select sign api_guess_event" />
-            <marker date="1553605987212" expanded="true" signature="7928:8005" ph="update api_guess_event... " />
+            <marker date="1553608429051" expanded="true" signature="7735:7775" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7808" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7735:7861" ph="select sign api_guess_event" />
+            <marker date="1553608429051" expanded="true" signature="7953:8030" ph="update api_guess_event... " />
           </folding>
         </state>
       </provider>

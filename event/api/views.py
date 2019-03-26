@@ -172,12 +172,13 @@ def get_eventlist(request):
 @require_http_methods(['GET'])
 def get_event_detail(request):
 	event_id = request.GET.get('id')
+	print(event_id)
 	if event_id:
 		event = Event.objects.filter(id=event_id)
 		if event:
 			event_detail = Event.objects.filter(id=event_id).values('id', 'title', 'status', 'limit',
 			                                                        'address', 'times')
-			result = {'error': 0, "event_detail": event_detail}
+			result = {'error': 0, "event_detail": event_detail.first()}
 		else:
 			result = {'error': 10004}
 	else:
