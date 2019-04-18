@@ -1,0 +1,49 @@
+
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>接口测试平台</title>#}
+{#</head>#}
+{#<body>#}
+{#    <p>欢迎来到陈柏霖的测试平台主页！！！</p>#}
+{#写法1:#}
+{#    <img src="http://127.0.0.1:8000/static/img/loading.gif" alt="loading">#}
+{#写法2:#}
+{#    <img src="/static/img/loading.gif" alt="loading">#}
+{#写法3:#}
+{##}
+{#    <img src="{% static 'img/loading.gif' %}" alt="loading">#}
+{#    <table>#}
+{#            <tr>#}
+{#                <th>ID</th>#}
+{#                <th>姓名</th>#}
+{#                <th>年龄</th>#}
+{#            </tr>#}
+{##}
+{#        {% if flag == 0 %}#}
+{#            {% for s in student  %}#}
+{#                <tr>#}
+{#                    <td>{{s.id}}</td>#}
+{#                    <td>{{s.name}}</td>#}
+{#                    <td>{{s.age}}</td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
+{#    </table>#}
+{#</body>#}
+{#</html>#}
+
+{% extends 'base.html' %}
+
+{% block head %}
+    <p>哈哈哈 这里是头部的内容！</p>
+{% endblock %}
+
+{% block wood %}
+    <p>wood是用来学python的</p>
+{% endblock %}
+
+{% block nemo %}
+{% endblock %}
