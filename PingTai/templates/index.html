@@ -1,5 +1,5 @@
+{% load static %}
 
-{#{% load static %}#}
 {#<!DOCTYPE html>#}
 {#<html lang="en">#}
 {#<head>#}
@@ -35,15 +35,55 @@
 {#</body>#}
 {#</html>#}
 
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
+{##}
+{#{% load static %}#}
+{#{% block head %}#}
+{#    <p>哈哈哈 这里是头部的内容！</p>#}
+{#{% endblock %}#}
+{##}
+{#{% block wood %}#}
+{#    <p>wood是用来学python的</p>#}
+{#{% endblock %}#}
+{##}
+{#{% block nemo %}#}
+{#    <img src="{% static 'img/loading.gif' %}" alt="loading">#}
+{#{% endblock %}#}
 
-{% block head %}
-    <p>哈哈哈 这里是头部的内容！</p>
-{% endblock %}
 
-{% block wood %}
-    <p>wood是用来学python的</p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <button class="button btn-warning">提交数据</button>
+    </div>
 
-{% block nemo %}
-{% endblock %}
+    <table class="table table-striped" style="width: 30px;height: 50px">
+        <tr>
+            <td>111</td>
+            <td>222</td>
+            <td>333</td>
+            <td>444</td>
+        </tr>
+        <tr>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+            <td>ddd</td>
+        </tr>
+        <tr>
+            <td>AAA</td>
+            <td>BBB</td>
+            <td>CCC</td>
+            <td>DDD</td>
+        </tr>
+    </table>
+</body>
+</html>

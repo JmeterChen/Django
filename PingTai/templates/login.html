@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口测试平台</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+{#    这里存在一个bug，当你在html文件里面写了自定义style后，后面引用bootstrap时，就不会出现代码联想了！#}
+{#    <style>#}
+{#        body {background-image: url("{% static 'img/background.jpg' %}")}#}
+{#    </style>#}
+</head>
+<body style="background-image: url('{% static 'img/background.jpg' %}')" >
+    <div class="container">
+        <div class="row" style="margin-top: 300px"></div>
+            <div class="a col-lg-7 col-md-7 col-sm-7 col-xs-7" style="color: whitesmoke;font-size: 25px">
+
+                <h2>欢迎来到编程猫自动化测试平台</h2>
+                <div style="margin-left: 20px">
+                    <p style="font-size: 18px">如果没有注册，请点击注册按钮进行注册流程！</p>
+                    <p style="font-size: 18px">若已注册请使用账号进行登录操作！</p>
+                </div>
+
+            </div>
+
+
+            <div class="a col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                <form>
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                          <h2 style="color: whitesmoke">用户登录</h2>
+                          <h4 style="color: whitesmoke">填写以下信息，完成登录：</h4>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                          <i class="fa fa-user-o fa-5x" aria-hidden="true" style="margin-left: 20px;color: whitesmoke"></i>
+                      </div>
+                    </div>
+
+                   <div class="divider" style="margin-bottom: 10px;height: 3px;background: whitesmoke"></div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="用户名">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="password" class="form-control"  placeholder="密码">
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-success form-control"> <i class="fa fa-paper-plane" aria-hidden="true" style="margin-right: 5px"></i>登录</button>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-warning form-control"> <i class="fa fa-paper-plane-o" aria-hidden="true" style="margin-right: 5px"></i>跳转到注册</button>
+                  </div>
+
+                </form>
+
+            </div>
+    </div>
+</body>
+</html>
