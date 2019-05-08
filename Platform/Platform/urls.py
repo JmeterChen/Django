@@ -1,4 +1,4 @@
-"""PingTai URL Configuration
+"""Platform URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -19,12 +19,6 @@ from index import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.index),
-    path('demo/', views.demo),
-    path('index/login/', views.login),
-    path('index/register/', views.register),
-    path('api/login/', views.api_login),
-    path('api/register/', views.api_register),
-    path('index/postman/', views.postman)
+    path('index/', views.index)
     
 ]

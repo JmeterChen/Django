@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动化测试平台</title>
+</head>
+<body>
+    <h1>欢迎来到陈柏霖的主页！</h1>
+    <p>
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.age}}</td>
+    </tr>
+    {% endfor %}
+    </p>
+</body>
+</html>

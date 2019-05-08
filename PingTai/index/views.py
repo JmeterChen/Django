@@ -52,3 +52,7 @@ def api_register(request):
 		
 	else:
 		return render(request, 'error.html', {'msg': '缺少必填参数：username or password or email!'})
+	
+	
+def postman(request):
+	return render(request, 'postman.html')
